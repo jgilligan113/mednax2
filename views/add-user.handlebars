@@ -1,0 +1,81 @@
+<div class='container'> 
+    <form action="/api/add-user" method="POST">
+        <div class="row page-label">                
+                <h4 class="light" style="padding:20px;">Add a User</h4>
+                {{#if failed}}
+                <div id="card-alert" class="card red">
+                      <div class="card-content white-text center-align" style='padding: 5px;'>
+                        {{message}}
+                      </div>
+                </div>
+                {{/if}}
+        </div>
+               
+        <div class="row input-field">
+            <div class="col s6">
+                <input name="first_name" type="text" class="validate" placeholder="First Name">
+            </div>
+            <div class="col s6">
+                <input name="last_name" type="text" class="validate" placeholder="Last Name">
+            </div>
+        </div>
+  
+        <div class="row input-field">
+            <div class="col s6">
+                <input name="email" type="text" class="validate" placeholder="Email">
+            </div>
+            <div class="col s6">
+                <input name="password" type="password" class="validate" placeholder="Password">
+            </div>
+        </div>
+  
+        <div class="row input-field">
+            <div class="col s6">
+                <input name="mobile" type="text" class="validate" placeholder="Mobile Phone">
+            </div>
+            <div class="col s6">
+                <input name="empID" type="text" class="validate" placeholder="Employee Id">
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col s4">
+                <p>Partner</p>
+                {{#each Partner}}
+                    <input name="PartnerId" type="radio" id="Partner{{this.id}}" value="{{this.id}}">    
+                    <label for="Partner{{this.id}}">{{this.location}}</label><br>
+                {{/each}}   
+            </div>
+
+            <div class="col s4">
+                <p>Position Status</p>
+                {{#each Status}}
+                    <input name="StatusId" type="radio" id="Status{{this.id}}" value="{{this.id}}">    
+                    <label for="Status{{this.id}}">{{this.status}}</label><br>
+                {{/each}} 
+            </div>
+
+            <div class="col s4">
+                <p>Special Access</p>
+                {{#each Group}}
+                    <input name="GroupId" type="radio" id="Group{{this.id}}" value="{{this.id}}">    
+                    <label for="Group{{this.id}}">{{this.userType}}</label><br>
+                {{/each}} 
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <button class="waves-effect waves-light btn" type="Submit">Submit</button>
+        </div>
+            
+    </form>
+</div>
+
+<script>
+    setTimeout(dismissCard, 5000);
+
+    function dismissCard() {
+        $('#card-alert').remove();
+    }
+</script>

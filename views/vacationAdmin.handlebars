@@ -1,0 +1,39 @@
+<div class="row page-label">
+    <div class="col s12 l8 offset-l2">
+        <br> <br>
+        <h4 class="light" style="padding:20px;">Vacay Requays</h4>
+        <div class="row">
+            {{#each vacation}}
+
+            <div class="col s12 m6">
+
+                <div class="card blue-grey lighten-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{User.first_name}} {{User.last_name}}</span>
+                        <hr>
+                        <p class="light">Team: {{User.Status.status}}</p>
+                        <p class="light">Start: {{start_date}}&nbsp&nbsp&nbsp End: {{end_date}}</p>
+                        <p class="light"><span class="activator"><i class="material-icons right">more_vert</i></span></p>
+                        <br>
+                        
+                            <form class="inline center">
+                                <button class="approval waves-effect waves-light btn inline">
+                                    <i class="material-icons">thumb_up</i>
+                                </button>
+                                <button class="approval waves-effect waves-light btn inline">
+                                    <i class="material-icons">thumb_down</i>
+                                </button>
+                            </form>
+                        
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Comment<i class="material-icons right">close</i></span>
+                        <p>{{comment}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</div>

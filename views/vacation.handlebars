@@ -1,0 +1,75 @@
+<div class='container'>
+
+<div class="row page-label">
+            <div class="col s4">
+                <br> <br>
+                <h4 class="light" style="padding:20px;">Vacay Requay</h4>
+            </div>
+</div>
+<div class='row'>
+    <div class='col l6'>
+        <form id="vacayForm" action='/vacation' method='POST'>      
+            <div class="row">
+                    <div class="row">
+                        <div class="col s6 input-field">
+                            <input class='datepicker' id="start_date" name="start_date" type="date" class="validate">
+                            <label for="start_date">Start Date</label>
+                        </div>
+                        <div class="col s6 input-field">
+                            <input class='datepickertwo' id="end_date" name="end_date" type="date" class="validate">
+                            <label for="end_date">End Date</label>
+                        </div>
+                        <div class="col s12">
+                            <textarea name="comment" id='comment' class="materialize-textarea" placeholder="Please add additional details"></textarea>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">                 
+                    <button id="submay" class="waves-effect waves-light btn" type="Submit">Submay</button>
+            </div>
+        </form>
+    </div>
+    <!--table start-->
+    <div class='col l1'></div> <!-- spacer column -->
+    <div class="col l5">
+        <table class="highlight responsive-table">
+            <thead>
+              <tr>
+                  <th>Status</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Comment</th>
+              </tr>
+            </thead>
+            <tbody>
+            {{#each vacation}}           
+              <tr>
+                <td>{{this.status}}</td>
+                <td>{{this.start_date}}</td>
+                <td>{{this.end_date}}</td>
+                <td>{{this.comment}}</td>
+              </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#start_date').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year
+            onSet: function() {
+                setTimeout(this.close, 0); //unsure why timeout is needed here but not below...
+            }
+        });
+        $('#end_date').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year
+            onSet: function() {
+                this.close;
+                $('#comment').focus();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med-Sched</title>
+    
+    {{> page/head}}
+
+</head>
+<body>
+    {{> page/menu}}
+    
+        {{{body}}}
+    
+    
+</body>
+<script>
+    $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+        $('.tooltipped').tooltip({delay: 50});
+    });
+</script>
+</html>
