@@ -12,7 +12,6 @@ $(document).ready(function() {
   // This function sets a todos complete attribute to the opposite of what it is
   // and then runs the updateTodo function
 
-
   // This function handles showing the input box for a user to edit a todo
   function editTodo() {
     var currentTodo = $(this).children('span');
@@ -36,12 +35,16 @@ $(document).ready(function() {
   function finishEdit(event) {
     var updatedTodo;
     if (event.key === "Enter") {
-      $(this).children('span').text( $(this).children('input').val().trim() );
-      ;
+      $(this).children('span').removeClass('empty');
+      let updatedVal = $(this).children('input').val().trim();
+      if( updatedVal.toLowerCase() === 'off' || updatedVal === '') {
+        updatedVal = 'Off';
+        $(this).children('span').addClass('empty');
+      }
+      $(this).children('span').text( updatedVal );
       $(this).blur();
     } else if( event.key === 'Escape' || event.key === 'Esc') { $(this).blur(); }
   }
-
 
   // This function is called whenever a todo item is in edit mode and loses focus
   // This cancels any edits being made

@@ -3,6 +3,8 @@
 	width: 35px !important;
 	text-align: center !important;
     color: green !important;
+    padding: 0 !important;
+    margin: 0 !important;
  }
 
  .todo-item:hover {
@@ -11,10 +13,12 @@
 
  .todo-item {
     color: blue !important;
+    margin: 0 !important;
  }
 
  .empty {
     color: red;
+    font-weight: bold;
  }
 </style>
 
@@ -42,12 +46,12 @@
                 {{#each row}}
                 <tr>
                     <td>{{this.Pos}}</td>
-                    <td class="list-group-item todo-item"><span{{#unless Mon}} class='empty'><strong>Off</strong>{{/unless}}{{#if Mon}}>{{this.Mon}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
-                    <td class="list-group-item todo-item"><span{{#unless Tues}} class='empty'><strong>Off</strong>{{/unless}}{{#if Tues}}>{{this.Tues}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
-                    <td class="list-group-item todo-item"><span{{#unless Wed}} class='empty'><strong>Off</strong>{{/unless}}{{#if Wed}}>{{this.Wed}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
-                    <td class="list-group-item todo-item"><span{{#unless Thur}} class='empty'><strong>Off</strong>{{/unless}}{{#if Thur}}>{{this.Thur}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
-                    <td class="list-group-item todo-item"><span{{#unless Fri}} class='empty'><strong>Off</strong>{{/unless}}{{#if Fri}}>{{this.Fri}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
-                    <td class="list-group-item todo-item"><span{{#unless SatSun}} class='empty'><strong>Off</strong>{{/unless}}{{#if SatSun}}>{{this.SatSun}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
+                    <td class="list-group-item todo-item"><span{{#unless Mon}} class='empty'>Off{{/unless}}{{#if Mon}}>{{this.Mon}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
+                    <td class="list-group-item todo-item"><span{{#unless Tues}} class='empty'>Off{{/unless}}{{#if Tues}}>{{this.Tues}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
+                    <td class="list-group-item todo-item"><span{{#unless Wed}} class='empty'>Off{{/unless}}{{#if Wed}}>{{this.Wed}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
+                    <td class="list-group-item todo-item"><span{{#unless Thur}} class='empty'>Off{{/unless}}{{#if Thur}}>{{this.Thur}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
+                    <td class="list-group-item todo-item"><span{{#unless Fri}} class='empty'>Off{{/unless}}{{#if Fri}}>{{this.Fri}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
+                    <td class="list-group-item todo-item"><span{{#unless SatSun}} class='empty'>Off{{/unless}}{{#if SatSun}}>{{this.SatSun}}{{/if}}</span><input type="text" class="edit" style="display: none;" size='5'></td>
                     <td>{{User.first_name}}</td>
                 </tr>
                 {{/each}}  
