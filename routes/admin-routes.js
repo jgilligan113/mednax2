@@ -63,8 +63,15 @@ module.exports = function(app) {
 		res.render('add-partner', {admin: true});
 	});
 
-	app.get('/matrix', isAuthenticated, isScheduler, function(req, res) {	
-	 	res.render('matrix', {admin: true});
+	app.get('/admin/matrix', isAuthenticated, isScheduler, function(req, res) {
+		db.Matrix.findAll({ include: [ db.User ]})
+				 .then( function(rows) {
+				 	res.render('matrix', {admin: true, row: rows});;
+			   }).catch( function(error) {
+			   		console.log(error.message);
+			   		res.sendStatus(400);
+			   });
+	 	
 	 });
 
 	app.put('/admin/vacations', isAuthenticated, isAdmin, function( req, res ) {
